@@ -1,23 +1,27 @@
 package personas;
 
 /**
- * Clase que se encarga de atender el ingreso de un paciente.
- * Según la EPSdel paciente, se le asigna un pabellón.
+ * Clase que gestiona el proceso de ingreso de un paciente al hospital.
+ * Se encarga de registrar su llegada y asignarle un pabellón
+ * dependiendo de la EPS a la que pertenece.
  */
 public class Atencion {
+
     /**
-     * Registra el ingreso de un paciente y le asigna un pabellón.
+     * Procesa el ingreso de un paciente y determina el pabellón
+     * correspondiente según su EPS.
      *
-     * @param paciente Paciente que va a ser atendido.
+     * @param paciente objeto Paciente que será atendido.
      */
-    public void pocesarIngreso(Paciente paciente) {
+    public void procesarIngreso(Paciente paciente) {
+
         System.out.println("Registrando ingreso de: " + paciente.getNombre());
 
         String pabellon;
 
-        if (paciente.getEPS() == "sura") {
+        if (paciente.getEPS().equalsIgnoreCase("sura")) {
             pabellon = "Pabellon A";
-        } else if (paciente.getEPS() == "sanitas") {
+        } else if (paciente.getEPS().equalsIgnoreCase("sanitas")) {
             pabellon = "Pabellon B";
         } else {
             pabellon = "Pabellon General";
